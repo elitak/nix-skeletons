@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+# After editing Cargo.toml, to regen all deps:
+rm -f Cargo.{lock,nix}
+nix-shell --pure --packages cargo --run "cargo update"
+carnix nix --src .
+#nix-build # will now work
